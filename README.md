@@ -7,9 +7,9 @@
 ```
 $ bash Check_RHEL_Patch_Version.bash
   Please Enter password below:
-  Please Enter your hostFile name: javasorted
+  Please Enter your hostFile name: my_hostfile
+```
 * Once you get successful run then, you will see below tabular output 
 
-```
 ![image](https://user-images.githubusercontent.com/30109092/169745913-07a6d2fb-1950-4a2b-bc3e-6852431bf2ac.png)
 
