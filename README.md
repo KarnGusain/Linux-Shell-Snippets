@@ -1,11 +1,12 @@
 # The following are the scripts for day to day use ..
+```
 1) Check Java Version and Vendor names
 2) Check RHEL last patch Version
 3) Check SAMBA Service status
 4) Run the Ping check Parallely using subshell to multiple hosts
 5) The quick nslookup IP to name translator
 6) The quick nslookup name to IP translator
-
+```
 # What these scripts are doing? see below quick summary ..
 
 	✔️ Check_RHEL_Patch_Version.bash(This is just to list the last patch Information and Kernel Version.)
