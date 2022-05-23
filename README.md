@@ -35,3 +35,5 @@ $ bash Check_RHEL_Patch_Version.bash
 
 ![image](https://user-images.githubusercontent.com/30109092/169745913-07a6d2fb-1950-4a2b-bc3e-6852431bf2ac.png)
 
+* While having the samba status check IE `samba_state_check.bash`, you will get below mail in the HTML format over outlook when it get fails.
+![image](https://user-images.githubusercontent.com/30109092/169748963-387d039c-e60a-450d-8359-f23e9d6aed93.png)
