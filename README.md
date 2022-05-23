@@ -24,8 +24,6 @@ $ bash check_Java_ver_Check.bash
 * Once you get successful run of `check_Java_ver_Check.bash`  then, you will see below tabular output 
 ![image](https://user-images.githubusercontent.com/30109092/169745184-0174ecdd-4e40-44ed-80aa-ea1d66d6d176.png)
 
-
-
 * When you run `Check_RHEL_Patch_Version.bash`; you will get prompted for `password` and `hostfile` before proceeding as follows..
 ```
 $ bash Check_RHEL_Patch_Version.bash
