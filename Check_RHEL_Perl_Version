@@ -1,0 +1,54 @@
+#!/bin/bash
+###################################################################################################################################
+## This is Just a small snippet to Check the current Installed Perl version alonh with RedHat relaese version on the host(s)     ##
+## Author : Karn Kumar (Created on 05/11/2022)                                                                                   ##
+## Version: 1.0                                                                                                                  ##
+## Email: karn.kumar@nxp.com                                                                                                     ##
+## Last Modified: 05/23/2022                                                                                                     ##
+###################################################################################################################################
+read -rsp $'Please Enter password below: ' SSHPASS
+echo -n  ""
+export SSHPASS
+echo ""
+read -rp $'Please Enter your hostFile name: ' target_File
+###################################################################################################################################
+printf "\n"
+marker=$(printf "%0.s-" {1..90})
+printf "|$marker|\n"
+printf "| %-107s|\n"  "                               Java Runtime  Status                                      |"
+printf "|$marker|\n"
+#printf "| %-107s|\n"
+printf "| %-32s | %-15s | %-35s |\n"  "Hostname" "RedHat Vesrion" "Perl Version"
+printf "|$marker|\n"
+remote_collect() {
+    ######## color distiction variable ##########
+    NC=$'\033[0m'
+    RD=$'\033[0;31m'
+    BL=$'\033[0;34m'
+    GN=$'\033[0;32m'
+    #############################################
+    target_host=$1
+    {
+        read -r rhelInfo
+        read -r perl_ver
+    } < <(
+          sshpass -e ssh -q -t "${target_host}" \
+              -o StrictHostKeyChecking=no -o ConnectTimeout=120 \
+              /bin/bash <<-EOF
+              cat /etc/redhat-release | awk 'END{print \$7}'
+             rpm -qa | grep mod_perl
+EOF
+          ) 2>/dev/null
+
+         if [[ $? -eq 0 ]] ;then
+              printf "| %-32s | %-15s | %-35s |\n" "${target_host}" "${rhelInfo}" "${perl_ver}"
+         else
+              # Use parameter expansion
+              printf "| %-32s | %-15s | %-35s |\n" "${target_host}" "${rhelInfo:-nologin}" "${perl_ver:-None}"
+         fi
+
+} 2>/dev/null
+export -f remote_collect
+< "$target_File"  xargs -P100 -n1 -d'\n' bash -c 'remote_collect "$@"' --
+printf "|$marker|\n"
+unset SSHPASS
