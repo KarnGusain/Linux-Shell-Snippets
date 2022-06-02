@@ -3,7 +3,7 @@
 ## This is Just a small snippet to Check the current Installed Perl version alonh with RedHat relaese version on the host(s)     ##
 ## Author : Karn Kumar (Created on 05/11/2022)                                                                                   ##
 ## Version: 1.0                                                                                                                  ##
-## Email: karn.kumar@nxp.com                                                                                                     ##
+## Email: karn.itguy@gmail.com                                                                                                     ##
 ## Last Modified: 05/23/2022                                                                                                     ##
 ###################################################################################################################################
 read -rsp $'Please Enter password below: ' SSHPASS
